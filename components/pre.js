@@ -36,7 +36,7 @@ const Pre = (props) => {
 	return (
 	  <div>
 			<h3>{props.editor}</h3>
-			<pre><code>{editors[editor].snippet}</code></pre>
+			<pre><code>{editors[editor].snippet.replace(/\$(?!{|[0-9])/gmi, "\\$")}</code></pre>
 			<div className="notes">{editors[editor].note}</div>
 			<style jsx>{`
 				pre {
