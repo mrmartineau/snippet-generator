@@ -1,0 +1,17 @@
+{
+  "name": "snippet-generator",
+  "version": "0.0.0",
+  "description": "Sublime Text, Atom & VS Code snippet generator",
+  "main": "pages/index.js",
+  "author": "Zander Martineau",
+  "license": "MIT",
+  "dependencies": {
+    "next": "beta"
+  },
+  "scripts": {
+    "start": "next start",
+    "build": "next build",
+    "dev": "next",
+    "deploy": "now --alias snippets.now.sh"
+  }
+}
