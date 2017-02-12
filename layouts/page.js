@@ -19,7 +19,8 @@ export default ({ children }) => (
     <footer className="text-centre">
       <p>
         <small>
-          Made with <a href="https://github.com/TryKickoff/kickoff-react">kickoff-react</a>, <a href="https://github.com/zeit/next.js">next.js</a> and hosted with <a href="https://zeit.co/now">now.sh</a>
+          <a href="https://github.com/mrmartineau/snippet-generator">Made</a> by <a href="https://zander.wtf">Zander ⚡</a><br/>
+          using <a href="https://github.com/TryKickoff/kickoff-react">kickoff-react</a>, <a href="https://github.com/zeit/next.js">next.js</a> and hosted on <a href="https://zeit.co/now">now.sh</a>
         </small>
       </p>
     </footer>
