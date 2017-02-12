@@ -16,6 +16,14 @@ export default ({ children }) => (
 
     {children}
 
+    <footer className="text-centre">
+      <p>
+        <small>
+          Made with <a href="https://github.com/TryKickoff/kickoff-react">kickoff-react</a>, <a href="https://github.com/zeit/next.js">next.js</a> and hosted with <a href="https://zeit.co/now">now.sh</a>
+        </small>
+      </p>
+    </footer>
+
     <style jsx global>{`
       body {
         margin: 0;

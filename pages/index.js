@@ -109,18 +109,7 @@ export default class Index extends Component {
 							/>
 						</Column>
 					</Grid>
-
-					<footer className="text-centre">
-						<p>
-							<small>
-								Made with <a href="https://github.com/zeit/next.js">next.js</a> and hosted with <a href="https://zeit.co/now">now.sh</a>
-							</small>
-						</p>
-					</footer>
 				</div>
-
-				<style jsx global>{`
-		    `}</style>
 			</Page>
 		)
 	}
