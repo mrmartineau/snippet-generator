@@ -28,6 +28,7 @@ export default class Index extends Component {
 		this.handleScopeChange = this.handleScopeChange.bind(this);
 		this.handleExample = this.handleExample.bind(this);
 		this.handleScopeExample = this.handleScopeExample.bind(this);
+		this.handleClear = this.handleClear.bind(this);
 	}
 
 	handleSnippetChange(event) {
@@ -57,6 +58,16 @@ export default class Index extends Component {
 	handleScopeExample(event) {
 		this.setState({
 			scope: event.target.textContent,
+		});
+	}
+
+	handleClear(event) {
+		event.preventDefault();
+		this.setState({
+			snippet: '',
+			description: '',
+			tabtrigger: '',
+			scope: '',
 		});
 	}
 
@@ -91,9 +102,15 @@ export default class Index extends Component {
 						<Column>
 							<Control>
 								<Textarea value={this.state.snippet} onChange={this.handleSnippetChange} placeholder="Snippet"/>
-								<small className="example">
-									Try an <a href="#" onClick={this.handleExample}>example</a>
-								</small>
+
+								<div className="examples">
+									<small>
+										<a href="#" onClick={this.handleClear}>Clear inputs</a>
+									</small>
+									<small>
+										Try an <a href="#" onClick={this.handleExample}>example</a>
+									</small>
+								</div>
 							</Control>
 						</Column>
 
@@ -137,6 +154,12 @@ export default class Index extends Component {
 				<style jsx>{`
 					small code {
 						cursor: pointer;
+					}
+
+					.examples {
+						display: flex;
+						justify-content: space-between;
+						margin-top: 5px;
 					}
 				`}</style>
 			</Page>
