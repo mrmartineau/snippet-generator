@@ -15,7 +15,7 @@ export default class Index extends Component {
 		this.state = {
 			snippet: '',
 			description: '',
-			tabTrigger: '',
+			tabtrigger: '',
 			scope: '',
 			editorSublime: true,
 			editorVSCode: false,
@@ -26,6 +26,7 @@ export default class Index extends Component {
 		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
 		this.handleTabTriggerChange = this.handleTabTriggerChange.bind(this);
 		this.handleScopeChange = this.handleScopeChange.bind(this);
+		this.handleExample = this.handleExample.bind(this);
 	}
 
 	handleSnippetChange(event) {
@@ -42,13 +43,25 @@ export default class Index extends Component {
 
 	handleTabTriggerChange(event) {
 		this.setState({
-			tabTrigger: event.target.value,
+			tabtrigger: event.target.value,
 		});
 	}
 
 	handleScopeChange(event) {
 		this.setState({
 			scope: event.target.value,
+		});
+	}
+
+	handleExample(event) {
+		event.preventDefault();
+		this.setState({
+			snippet: `const \${1:fn} = ($2) => {
+	$3
+}`,
+			description: 'Creates an anonymous function in ES6 syntax',
+			tabtrigger: 'anfn',
+			scope: 'source.js',
 		});
 	}
 
@@ -70,6 +83,9 @@ export default class Index extends Component {
 						<Column>
 							<Control>
 								<Textarea value={this.state.snippet} onChange={this.handleSnippetChange} placeholder="Snippet"/>
+								<small className="example">
+									Try an <a href="#" onClick={this.handleExample}>example</a>
+								</small>
 							</Control>
 						</Column>
 
