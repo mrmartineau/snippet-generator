@@ -67,6 +67,17 @@ export default ({ children }) => (
         background-color: ${colors.bg};
         padding: 0;
       }
+
+      .form-input--textarea {
+        tab-size: 3;
+      }
+
+      .form-input--textarea {
+        font-family: Menlo, Monaco, "Courier New", monospace;
+        font-size: 14px;
+      }
+
+      .
     `}</style>
   </main>
 )

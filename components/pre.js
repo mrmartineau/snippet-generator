@@ -7,37 +7,48 @@ const Pre = (props) => {
 			snippet: `<snippet>
 	<content><![CDATA[${props.snippet}]]></content>
 	<description>${props.description}</description>
-	<tabTrigger>${props.tabTrigger}</tabTrigger>
+	<tabTrigger>${props.tabtrigger}</tabTrigger>
 	<scope>${props.scope}</scope>
 </snippet>`,
-			note: `Create a new *.sublime-snippet file and save the contents above into it.`
+			note: `Create a new *.sublime-snippet file and save the contents above into it.`,
+			docslink: 'http://docs.sublimetext.info/en/latest/extensibility/snippets.html',
 		},
+
 		atom: {
 			snippet: `'.${props.scope}':
 	'${props.description}':
-	  'prefix': '${props.tabTrigger}'
-	  'body': """
-	    ${props.snippet}
-	  """`,
-			note: `Paste the above code into your snippets.cson`
+		'prefix': '${props.tabtrigger}'
+		'body': """
+			${props.snippet}
+		"""`,
+			note: `Paste the above code into your snippets.cson.`,
+			docslink: 'http://flight-manual.atom.io/using-atom/sections/snippets/',
 		},
+
 		vscode: {
 			snippet: `"snippet-${props.tabTrigger}": {
-  "prefix": "${props.tabTrigger}",
-  "body": "${props.snippet}",
-  "description": "${props.description}"
+	"prefix": "${props.tabtrigger}",
+	"body": "${props.snippet
+				.replace(/\n/gm, '\\n')
+				.replace(/\t/gm, '\\t')
+				.replace(/\r/gm, '\\r')
+			}",
+	"description": "${props.description}"
 }`,
-			note: `Go to 'Preferences' > 'User snippets' and select the correct type, then paste in the above code`
+			note: `Go to 'Preferences' > 'User snippets' and select the correct type, then paste in the above code.`,
+			docslink: 'https://code.visualstudio.com/docs/editor/userdefinedsnippets',
 		},
 	};
 
 	const editor = props.editor.toLowerCase().replace(' ', '');
 
 	return (
-	  <div>
+		<div>
 			<h3>{props.editor}</h3>
 			<pre><code>{editors[editor].snippet.replace(/\$(?!{|[0-9])/gmi, "\\$")}</code></pre>
-			<div className="notes">{editors[editor].note}</div>
+			<div className="notes">
+				{editors[editor].note} <br/>Discover more from the <a href={editors[editor].docslink}>{props.editor} snippets docs</a>.
+			</div>
 			<style jsx>{`
 				pre {
 					overflow-x: scroll;
@@ -54,7 +65,7 @@ const Pre = (props) => {
 					font-size: 14px;
 				}
 			`}</style>
-	  </div>
+		</div>
 	)
 }
 

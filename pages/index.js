@@ -27,6 +27,7 @@ export default class Index extends Component {
 		this.handleTabTriggerChange = this.handleTabTriggerChange.bind(this);
 		this.handleScopeChange = this.handleScopeChange.bind(this);
 		this.handleExample = this.handleExample.bind(this);
+		this.handleScopeExample = this.handleScopeExample.bind(this);
 	}
 
 	handleSnippetChange(event) {
@@ -53,6 +54,12 @@ export default class Index extends Component {
 		});
 	}
 
+	handleScopeExample(event) {
+		this.setState({
+			scope: event.target.textContent,
+		});
+	}
+
 	handleExample(event) {
 		event.preventDefault();
 		this.setState({
@@ -69,7 +76,7 @@ export default class Index extends Component {
 		const preProps = {
 			snippet: this.state.snippet,
 			description: this.state.description,
-			tabTrigger: this.state.tabTrigger,
+			tabtrigger: this.state.tabtrigger,
 			scope: this.state.scope,
 		};
 
@@ -78,6 +85,7 @@ export default class Index extends Component {
 				<div className="l-container">
 					<h1 className="text-centre">Snippet Generator</h1>
 					<p className="text-centre l-mb0">Sublime Text, Atom & VS Code snippet generator</p>
+					<p className="text-centre l-mb0"><small>Convert snippets across your text editors</small></p>
 
 					<Grid gutter stack="mid">
 						<Column>
@@ -98,7 +106,7 @@ export default class Index extends Component {
 							</Control>
 							<Control>
 								<input value={this.state.scope} onChange={this.handleScopeChange} placeholder="Scope" type="text" name="scope" className="form-input"/>
-								<small>e.g. <code>source.js</code>, <code>source.css</code> or <code>text.html</code></small>
+								<small>e.g. <code onClick={this.handleScopeExample}>source.js</code>, <code onClick={this.handleScopeExample}>source.css</code> or <code onClick={this.handleScopeExample}>text.html</code></small>
 							</Control>
 						</Column>
 					</Grid>
@@ -126,6 +134,11 @@ export default class Index extends Component {
 						</Column>
 					</Grid>
 				</div>
+				<style jsx>{`
+					small code {
+						cursor: pointer;
+					}
+				`}</style>
 			</Page>
 		)
 	}
