@@ -29,6 +29,7 @@ export default class Index extends Component {
 		this.handleExample = this.handleExample.bind(this);
 		this.handleScopeExample = this.handleScopeExample.bind(this);
 		this.handleClear = this.handleClear.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
 	}
 
 	handleSnippetChange(event) {
@@ -59,6 +60,21 @@ export default class Index extends Component {
 		this.setState({
 			scope: event.target.textContent,
 		});
+	}
+
+	handleKeyDown(event) {
+		if (event.keyCode === 9) {
+			event.preventDefault();
+			const snippet = this.state.snippet;
+			const selectionStart = event.target.selectionStart;
+			const snippetStart = snippet.slice(0, selectionStart);
+			const snippetEnd = snippet.slice(selectionStart);
+			console.log(event.target.selectionEnd);
+			this.setState({
+				snippet: `${snippetStart}\t${snippetEnd}`,
+			})
+			// event.target.selectionStart = event.target.selectionEnd = selectionStart + 1;
+		}
 	}
 
 	handleClear(event) {
@@ -101,7 +117,7 @@ export default class Index extends Component {
 					<Grid gutter stack="mid">
 						<Column>
 							<Control>
-								<Textarea value={this.state.snippet} onChange={this.handleSnippetChange} placeholder="Snippet"/>
+								<Textarea value={this.state.snippet} onChange={this.handleSnippetChange} placeholder="Snippet" onKeyDown={this.handleKeyDown}/>
 
 								<div className="examples">
 									<small>
