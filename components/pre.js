@@ -26,7 +26,7 @@ const Pre = (props) => {
 		},
 
 		vscode: {
-			snippet: `"snippet-${props.tabTrigger}": {
+			snippet: `"snippet-${props.tabtrigger}": {
 	"prefix": "${props.tabtrigger}",
 	"body": "${props.snippet
 				.replace(/\n/gm, '\\n')
