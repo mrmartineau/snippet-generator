@@ -1,17 +1,20 @@
 // Components
-import Head from 'next/head'
-const colors  = {
+import Head from 'next/head';
+const colors = {
   accent: '#DA37CF',
   copy: '#444',
   bg: '#fff',
-}
+};
 
 export default ({ children }) => (
   <main>
     <Head>
       <title>Sublime Text, Atom & VS Code snippet generator</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel='stylesheet' href='https://cdn.rawgit.com/TryKickoff/kickoff/72581bbd/assets/dist/css/kickoff.css'/>
+      <link
+        rel="stylesheet"
+        href="https://cdn.rawgit.com/TryKickoff/kickoff/72581bbd/assets/dist/css/kickoff.css"
+      />
     </Head>
 
     {children}
@@ -19,13 +22,31 @@ export default ({ children }) => (
     <footer className="text-centre">
       <p>
         <small>
-          <a href="https://github.com/mrmartineau/snippet-generator">Made</a> by <a href="https://zander.wtf">Zander ⚡</a><br/>
-          using <a href="https://github.com/TryKickoff/kickoff-react">kickoff-react</a>, <a href="https://github.com/zeit/next.js">next.js</a> and hosted on <a href="https://zeit.co/now">now.sh</a>
+          <a href="https://github.com/mrmartineau/snippet-generator">Made</a>
+          {' '}
+          by
+          {' '}
+          <a href="https://zander.wtf">Zander ⚡</a>
+          <br />
+          using
+          {' '}
+          <a href="https://github.com/TryKickoff/kickoff-react">
+            kickoff-react
+          </a>
+          ,
+          {' '}
+          <a href="https://github.com/zeit/next.js">next.js</a>
+          {' '}
+          and hosted on
+          {' '}
+          <a href="https://zeit.co/now">now.sh</a>
         </small>
       </p>
     </footer>
 
-    <style jsx global>{`
+    <style jsx global>
+      {
+        `
       body {
         margin: 0;
         -webkit-font-smoothing: antialiased;
@@ -78,6 +99,8 @@ export default ({ children }) => (
       }
 
       .
-    `}</style>
+    `
+      }
+    </style>
   </main>
-)
+);
