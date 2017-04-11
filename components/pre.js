@@ -19,7 +19,7 @@ const Pre = (props) => {
 	'${props.description}':
 		'prefix': '${props.tabtrigger}'
 		'body': """
-			${props.snippet}
+			${props.snippet.replace(/\\/gm, '\\\\\\\\')}
 		"""`,
 			note: `Paste the above code into your snippets.cson.`,
 			docslink: 'http://flight-manual.atom.io/using-atom/sections/snippets/',
