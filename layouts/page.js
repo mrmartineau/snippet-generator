@@ -9,6 +9,7 @@ export default ({ children }) => (
   <main>
     <Head>
       <title>Sublime Text, Atom & VS Code snippet generator</title>
+      <meta name="description" content="A side-project by Zander Martineau" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link
         rel="stylesheet"
