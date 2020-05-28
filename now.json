@@ -1,4 +1,5 @@
 {
-	"name": "snippets",
-	"alias": "snippets.now.sh"
+  "version": 2,
+  "scope": "zander",
+  "alias": "snippets.zander.wtf"
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Grid = ({ children, gutter, scaled, stack }) => {
+export const Grid = ({ children, gutter, scaled, stack }) => {
   let className = 'g'
   if (gutter && scaled) {
     className += ' g--gutter--scaled'
@@ -12,9 +12,5 @@ const Grid = ({ children, gutter, scaled, stack }) => {
   } else if (stack) {
     className += ' g--stack'
   }
-  return <div className={className}>
-    {children}
-  </div>
+  return <div className={className}>{children}</div>
 }
-
-module.exports = Grid

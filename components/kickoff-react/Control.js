@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Control = ({ children, error, success, warning }) => {
+export const Control = ({ children, error, success, warning }) => {
   let className = 'form-controlGroup'
   if (success) {
     className += ' has-success'
@@ -9,9 +9,5 @@ const Control = ({ children, error, success, warning }) => {
   } else if (warning) {
     className += ' has-warning'
   }
-  return <div className={className}>
-    {children}
-  </div>
+  return <div className={className}>{children}</div>
 }
-
-module.exports = Control

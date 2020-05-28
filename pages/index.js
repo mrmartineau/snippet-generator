@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import Pre from '../components/pre';
-import Grid from '../components/kickoff-react/Grid';
-import Column from '../components/kickoff-react/Column';
-import Control from '../components/kickoff-react/Control';
-import Input from '../components/kickoff-react/Input';
-import Textarea from '../components/kickoff-react/Textarea';
+import React, { Component } from 'react'
+import { Pre } from '../components/pre'
+import { Grid } from '../components/kickoff-react/Grid'
+import { Column } from '../components/kickoff-react/Column'
+import { Control } from '../components/kickoff-react/Control'
+import { Input } from '../components/kickoff-react/Input'
+import { Textarea } from '../components/kickoff-react/Textarea'
 
 // Layouts
-import Page from '../layouts/page';
+import Page from '../layouts/page'
 
 export default class Index extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       snippet: '',
       description: '',
@@ -20,75 +20,75 @@ export default class Index extends Component {
       editorSublime: true,
       editorVSCode: false,
       editorAtom: false,
-    };
+    }
 
-    this.handleSnippetChange = this.handleSnippetChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.handleTabTriggerChange = this.handleTabTriggerChange.bind(this);
-    this.handleScopeChange = this.handleScopeChange.bind(this);
-    this.handleExample = this.handleExample.bind(this);
-    this.handleScopeExample = this.handleScopeExample.bind(this);
-    this.handleClear = this.handleClear.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleSnippetChange = this.handleSnippetChange.bind(this)
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
+    this.handleTabTriggerChange = this.handleTabTriggerChange.bind(this)
+    this.handleScopeChange = this.handleScopeChange.bind(this)
+    this.handleExample = this.handleExample.bind(this)
+    this.handleScopeExample = this.handleScopeExample.bind(this)
+    this.handleClear = this.handleClear.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
   }
 
   handleSnippetChange(event) {
     this.setState({
       snippet: event.target.value,
-    });
+    })
   }
 
   handleDescriptionChange(event) {
     this.setState({
       description: event.target.value,
-    });
+    })
   }
 
   handleTabTriggerChange(event) {
     this.setState({
       tabtrigger: event.target.value,
-    });
+    })
   }
 
   handleScopeChange(event) {
     this.setState({
       scope: event.target.value,
-    });
+    })
   }
 
   handleScopeExample(event) {
     this.setState({
       scope: event.target.textContent,
-    });
+    })
   }
 
   handleKeyDown(event) {
     if (event.keyCode === 9) {
-      event.preventDefault();
-      const snippet = this.state.snippet;
-      const selectionStart = event.target.selectionStart;
-      const snippetStart = snippet.slice(0, selectionStart);
-      const snippetEnd = snippet.slice(selectionStart);
-      console.log(event.target.selectionEnd);
+      event.preventDefault()
+      const snippet = this.state.snippet
+      const selectionStart = event.target.selectionStart
+      const snippetStart = snippet.slice(0, selectionStart)
+      const snippetEnd = snippet.slice(selectionStart)
+      console.log(event.target.selectionEnd)
       this.setState({
         snippet: `${snippetStart}\t${snippetEnd}`,
-      });
+      })
       // event.target.selectionStart = event.target.selectionEnd = selectionStart + 1;
     }
   }
 
   handleClear(event) {
-    event.preventDefault();
+    event.preventDefault()
     this.setState({
       snippet: '',
       description: '',
       tabtrigger: '',
       scope: '',
-    });
+    })
   }
 
   handleExample(event) {
-    event.preventDefault();
+    event.preventDefault()
     this.setState({
       snippet: `const \${1:fn} = ($2) => {
 	$3
@@ -96,7 +96,7 @@ export default class Index extends Component {
       description: 'Creates an anonymous function in ES6 syntax',
       tabtrigger: 'anfn',
       scope: 'source.js',
-    });
+    })
   }
 
   render() {
@@ -105,7 +105,7 @@ export default class Index extends Component {
       description: this.state.description,
       tabtrigger: this.state.tabtrigger,
       scope: this.state.scope,
-    };
+    }
 
     return (
       <Page>
@@ -130,10 +130,15 @@ export default class Index extends Component {
 
                 <div className="examples">
                   <small>
-                    <a href="#" onClick={this.handleClear}>Clear inputs</a>
+                    <a href="#" onClick={this.handleClear}>
+                      Clear inputs
+                    </a>
                   </small>
                   <small>
-                    Try an <a href="#" onClick={this.handleExample}>example</a>
+                    Try an{' '}
+                    <a href="#" onClick={this.handleExample}>
+                      example
+                    </a>
                   </small>
                 </div>
               </Control>
@@ -167,15 +172,8 @@ export default class Index extends Component {
                   className="form-input"
                 />
                 <small>
-                  e.g.
-                  {' '}
-                  <code onClick={this.handleScopeExample}>source.js</code>
-                  ,
-                  {' '}
-                  <code onClick={this.handleScopeExample}>source.css</code>
-                  {' '}
-                  or
-                  {' '}
+                  e.g. <code onClick={this.handleScopeExample}>source.js</code>,{' '}
+                  <code onClick={this.handleScopeExample}>source.css</code> or{' '}
                   <code onClick={this.handleScopeExample}>text.html</code>
                 </small>
               </Control>
@@ -197,21 +195,19 @@ export default class Index extends Component {
           </Grid>
         </div>
         <style jsx>
-          {
-            `
-					small code {
-						cursor: pointer;
-					}
+          {`
+            small code {
+              cursor: pointer;
+            }
 
-					.examples {
-						display: flex;
-						justify-content: space-between;
-						margin-top: 5px;
-					}
-				`
-          }
+            .examples {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 5px;
+            }
+          `}
         </style>
       </Page>
-    );
+    )
   }
 }

@@ -6,12 +6,13 @@
   "author": "Zander Martineau",
   "license": "MIT",
   "dependencies": {
-    "next": "beta"
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "scripts": {
     "start": "next start",
     "build": "next build",
-    "dev": "next",
-    "deploy": "now --alias snippets.now.sh"
+    "dev": "next"
   }
 }

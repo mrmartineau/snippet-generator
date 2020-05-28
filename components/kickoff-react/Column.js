@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Column = ({ centered, children, mid, span }) => {
+export const Column = ({ centered, children, mid, span }) => {
   let className = 'g-col'
   if (span) {
     className += ' g-span' + span
@@ -11,9 +11,5 @@ const Column = ({ centered, children, mid, span }) => {
   if (centered) {
     className += ' g-col--centered'
   }
-  return <div className={className}>
-    {children}
-  </div>
+  return <div className={className}>{children}</div>
 }
-
-module.exports = Column
